@@ -5,6 +5,6 @@ export default defineConfig({
   schema: "./config/schema.js",
   dialect: "postgresql",
   dbCredentials: {
-    url: "your db url",
+    url: "",
   },
 });
