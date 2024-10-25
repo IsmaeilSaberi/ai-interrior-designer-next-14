@@ -12,7 +12,7 @@ export async function POST(req) {
       .select()
       .from(Users)
       .where(eq(Users.email, user?.primaryEmailAddress.emailAddress));
-    console.log("User", userInfo);
+    // console.log("User", userInfo);
     // If not will add new user to DB
     if (userInfo?.length == 0) {
       const SaveResult = await db
@@ -29,7 +29,6 @@ export async function POST(req) {
 
     return NextResponse.json({ result: userInfo[0] });
   } catch (error) {
-    console.log(error);
     return NextResponse.json({ error: error });
   }
 }
