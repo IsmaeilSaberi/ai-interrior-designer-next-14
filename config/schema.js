@@ -5,5 +5,5 @@ export const Users = pgTable("users", {
   name: varchar("name").notNull(),
   email: varchar("email").notNull(),
   imageUrl: varchar("imageUrl").notNull(),
-  edits: integer("credits").default(3),
+  credits: integer("credits").default(3),
 });
