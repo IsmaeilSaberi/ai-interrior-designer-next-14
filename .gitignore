@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+#/ drizzle config
+drizzle.config.js
+
 # next.js
 /.next/
 /out/
