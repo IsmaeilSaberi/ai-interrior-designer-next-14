@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import ImageSelection from "./_components/ImageSelection";
 import InteriorType from "./_components/InteriorType";
 import DesignType from "./_components/DesignType";
@@ -7,7 +7,14 @@ import AdditionalRequirements from "./_components/AdditionalRequirements";
 import { Button } from "@/components/ui/button";
 
 function CreateNew() {
-  const onHandleInputChange = (value, fieldNmae) => {};
+  const [formData, setFormData] = useState([]);
+  const onHandleInputChange = (value, fieldNmae) => {
+    setFormData((prev) => ({
+      ...prev,
+      [fieldNmae]: value,
+    }));
+    console.log(formData);
+  };
   return (
     <div>
       <h2 className="font-bold text-4xl text-primary text-center">
