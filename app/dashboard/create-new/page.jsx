@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ImageSelection from "./_components/ImageSelection";
-import InterriorType from "./_components/InterriorType";
+import InteriorType from "./_components/InteriorType";
 
 function CreateNew() {
   const onHandleInputChange = (value, fieldNmae) => {};
@@ -11,8 +11,8 @@ function CreateNew() {
         Experience the Magic of AI Remodeling
       </h2>
       <p className="text-center text-gray-500">
-        Transform any interrior with a click. Select a space, choose a style,
-        and watch as AI instantly reimagines your environment.
+        Transform any interior with a click. Select a space, choose a style, and
+        watch as AI instantly reimagines your environment.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-10">
         {/* Image Selection */}
@@ -22,9 +22,9 @@ function CreateNew() {
         {/* Form Input Section */}
         <div>
           {/* Interior Type */}
-          <InterriorType
-            selectedInterriorType={(value) =>
-              onHandleInputChange(value, "interriorType")
+          <InteriorType
+            selectedInteriorType={(value) =>
+              onHandleInputChange(value, "interiorType")
             }
           />
           {/* Design Type */}

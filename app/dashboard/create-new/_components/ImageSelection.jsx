@@ -11,7 +11,7 @@ function ImageSelection({ selectedImage }) {
   };
   return (
     <div>
-      <label>Select Image of your interrior</label>
+      <label>Select Image of your Interior</label>
       <div className="mt-3">
         <label htmlFor="upload-image">
           <div

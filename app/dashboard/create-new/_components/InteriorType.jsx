@@ -7,13 +7,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-function InterriorType({ selectedInterriorType }) {
+function interiorType({ selectedInteriorType }) {
   return (
     <div>
-      <label className="text-slate-400">Select Interrior Type *</label>
-      <Select onValueChange={(value) => selectedInterriorType(value)}>
+      <label className="text-slate-400">Select Interior Type *</label>
+      <Select onValueChange={(value) => selectedInteriorType(value)}>
         <SelectTrigger className="w-full">
-          <SelectValue placeholder="Interrior Type" />
+          <SelectValue placeholder="Interior Type" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="Living Room">Living Room</SelectItem>
@@ -27,4 +27,4 @@ function InterriorType({ selectedInterriorType }) {
   );
 }
 
-export default InterriorType;
+export default interiorType;
