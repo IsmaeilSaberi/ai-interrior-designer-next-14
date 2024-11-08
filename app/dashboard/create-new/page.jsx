@@ -2,6 +2,7 @@
 import React from "react";
 import ImageSelection from "./_components/ImageSelection";
 import InteriorType from "./_components/InteriorType";
+import DesignType from "./_components/DesignType";
 
 function CreateNew() {
   const onHandleInputChange = (value, fieldNmae) => {};
@@ -28,6 +29,11 @@ function CreateNew() {
             }
           />
           {/* Design Type */}
+          <DesignType
+            selectedDesignType={(value) =>
+              onHandleInputChange(value, "designType")
+            }
+          />
 
           {/* Additional Requirement Textarea(optional) */}
 
