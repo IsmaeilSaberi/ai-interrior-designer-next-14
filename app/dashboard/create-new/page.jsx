@@ -3,6 +3,8 @@ import React from "react";
 import ImageSelection from "./_components/ImageSelection";
 import InteriorType from "./_components/InteriorType";
 import DesignType from "./_components/DesignType";
+import AdditionalRequirements from "./_components/AdditionalRequirements";
+import { Button } from "@/components/ui/button";
 
 function CreateNew() {
   const onHandleInputChange = (value, fieldNmae) => {};
@@ -35,9 +37,17 @@ function CreateNew() {
             }
           />
 
-          {/* Additional Requirement Textarea(optional) */}
-
+          {/* Additional Requirements Textarea(optional) */}
+          <AdditionalRequirements
+            additionalRequirementsInput={(value) =>
+              onHandleInputChange(value, "additionalRequirements")
+            }
+          />
           {/* Button To Generate Image */}
+          <Button className="w-full mt-5">Generate</Button>
+          <p className="text-sm text-gray-400 mb-52">
+            NOTE: 1 Credit will use to redesign your interior
+          </p>
         </div>
       </div>
     </div>

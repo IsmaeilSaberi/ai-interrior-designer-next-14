@@ -9,7 +9,7 @@ function Header() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
 
   return (
-    <div className="p-5 shadow-sm flex justify-between items-center">
+    <div className="p-4 shadow-sm flex justify-between items-center">
       <div className="flex gap-2 items-center">
         <Image src={"/logo.svg"} width={40} height={40} />
         <h2 className="font-bold text-lg">AI Interior Designer</h2>
