@@ -2,10 +2,10 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-function ImageSelection({ selectedImage }) {
+function ImageSelection({ selectedImage, setUploadFile }) {
   const [file, setFile] = useState();
   const onFileSelected = (event) => {
-    console.log(event.target.files[0]);
+    // console.log(event.target.files[0]);
     setFile(event.target.files[0]);
     selectedImage(event.target.files[0]);
   };
