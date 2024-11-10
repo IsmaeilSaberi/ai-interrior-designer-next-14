@@ -25,8 +25,13 @@ function CreateNew() {
     const rawImageUrl = await SaveRawImageToLiara();
     console.log(rawImageUrl);
 
-    // const result = await axios.post("/api/redesign-room", formData);
-    // console.log(result);
+    const result = await axios.post("/api/redesign-room", {
+      imageUrl: rawImageUrl,
+      interiorType: formData?.interiorType,
+      designType: formData?.designType,
+      additionalRequirements: formData?.additionalRequirements,
+    });
+    console.log(result);
   };
 
   // a function for uploading file or image to liara
