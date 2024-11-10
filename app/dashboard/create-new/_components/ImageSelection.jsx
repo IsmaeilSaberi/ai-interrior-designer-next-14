@@ -7,6 +7,7 @@ function ImageSelection({ selectedImage, setUploadFile }) {
   const onFileSelected = (event) => {
     // console.log(event.target.files[0]);
     setFile(event.target.files[0]);
+    setUploadFile(event.target.files[0]);
     selectedImage(event.target.files[0]);
   };
   return (
@@ -20,12 +21,18 @@ function ImageSelection({ selectedImage, setUploadFile }) {
             }`}
           >
             {!file ? (
-              <Image src={"/imageupload.png"} width={70} height={70} />
+              <Image
+                src={"/imageupload.png"}
+                width={70}
+                height={70}
+                alt="uploadimg"
+              />
             ) : (
               <Image
                 src={URL.createObjectURL(file)}
                 width={300}
                 height={300}
+                alt="image"
                 className="w-[300px] h-[300px] object-cover"
               />
             )}

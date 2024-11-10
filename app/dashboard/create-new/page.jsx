@@ -13,26 +13,24 @@ function CreateNew() {
   const [uploadError, setUploadError] = useState(null);
   const [uploadFile, setUploadFile] = useState(null);
   const [uploadLink, setUploadLink] = useState(null);
-  const [permanentLink, setPermanentLink] = useState(null);
 
   const onHandleInputChange = (value, fieldName) => {
     setFormData((prev) => ({
       ...prev,
       [fieldName]: value,
     }));
-    setUploadFile(value);
-    // console.log(uploadFile);
   };
 
   const GenerateAiImage = async () => {
-    await SaveRawImageToLiara();
-    console.log(permanentLink);
+    const rawImageUrl = await SaveRawImageToLiara();
+    console.log(rawImageUrl);
+
     // const result = await axios.post("/api/redesign-room", formData);
     // console.log(result);
   };
 
   // a function for uploading file or image to liara
-  const handleUpload = async () => {
+  const SaveRawImageToLiara = async () => {
     try {
       if (!uploadFile) {
         setUploadError("Please select a file");
@@ -49,7 +47,6 @@ function CreateNew() {
         secretAccessKey,
         endpoint,
       });
-      console.log(uploadFile);
 
       const params = {
         Bucket: bucket,
@@ -72,22 +69,15 @@ function CreateNew() {
         Key: uploadFile.name,
         Expires: 31536000, // 1 year
       });
-      setPermanentLink(permanentSignedUrl);
 
-      onUpload(response);
+      // onUpload(response);
 
       console.log("File uploaded successfully");
+      return permanentSignedUrl;
     } catch (error) {
       console.log(error);
       setUploadError("Error uploading file: " + error.message);
     }
-  };
-
-  const SaveRawImageToLiara = async () => {
-    // Save image to liara
-    await handleUpload().then((res) =>
-      console.log("file uploaded successfully")
-    );
   };
 
   return (
@@ -102,6 +92,7 @@ function CreateNew() {
       <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-10">
         {/* Image Selection */}
         <ImageSelection
+          setUploadFile={setUploadFile}
           selectedImage={(value) => onHandleInputChange(value, "image")}
         />
         {/* Form Input Section */}
