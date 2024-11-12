@@ -121,6 +121,16 @@ async function ConvertImageToBase64(imageUrl) {
 
     return "data:image/png;base64," + base64ImageRaw;
   } catch (error) {
-    console.error("Error fetching the image:", error);
+    // Log full error details
+    if (error.response) {
+      console.error("Status:", error.response.status);
+      console.error("Headers:", error.response.headers);
+      console.error("Data:", error.response.data);
+    } else if (error.request) {
+      console.error("No response received:", error.request);
+    } else {
+      console.error("Error setting up the request:", error.message);
+    }
+    throw error;
   }
 }
